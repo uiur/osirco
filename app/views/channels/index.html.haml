@@ -1,9 +1,11 @@
-%table
-  %tr
-    %th Name
-    %th Host
-  - @channels.each do |channel|
+%table.table
+  %thead
     %tr
-      %td= link_to channel.name, channel
-      %td= channel.host
+      %th Name
+      %th Host
+  %tbody
+    - @channels.each do |channel|
+      %tr
+        %td= link_to channel.name, channel
+        %td= channel.host
 
