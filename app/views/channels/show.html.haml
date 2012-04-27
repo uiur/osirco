@@ -1,8 +1,15 @@
+= content_for(:sidebar) do
+  - @channels.each do |channel|
+    %li= link_to channel.name, channel
+
 %h1= @channel.name
 %hr
-%table
+= form_tag @channel, :method => :get do
+  = text_field_tag :search, params[:search], :placeholder => 'Search', :class => 'search-query'
+  = submit_tag 'Search', :class => 'btn'
+%table.table.table-striped.table-condensed
   - @messages.each do |message|
     %tr
       %td= message.username
       %td= message.content
-      %td= message.sended_at
+      %td= message.sended_at.to_s(:simple)

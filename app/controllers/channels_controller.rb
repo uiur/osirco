@@ -14,11 +14,15 @@ class ChannelsController < ApplicationController
   # GET /channels/1.json
   def show
     @channel = Channel.find(params[:id])
-    @messages = @channel.messages
+    @channels = Channel.all
+
+    search = params[:search]
+    from = params[:from].blank? ? 20.years.ago : Time.zone.parse(params[:from])
+    @messages = @channel.messages.where{ ((content.like "%#{search}%") | (username.like "%#{search}%")) & (sended_at >= from) }
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @channel }
+      format.json { render json: @messages }
     end
   end
 end
