@@ -26,6 +26,8 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'spork'
+  gem 'fabrication'
+  gem 'faker'
 end
 
 gem 'jquery-rails'
