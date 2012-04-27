@@ -3,16 +3,32 @@
     %li= link_to channel.name, channel
 
 %h1= @channel.name
+
 %hr
+
+- if @date
+  %h2= @date.to_s(:jp)
+
 = form_tag @channel, :method => :get do
   = text_field_tag :search, params[:search], :placeholder => 'Search', :class => 'search-query'
   = submit_tag 'Search', :class => 'btn'
+
 #messages
+  - last_message = @messages.first
   - @messages.each do |message|
+    - if last_message.sended_at.beginning_of_day > message.sended_at
+      .message
+        .row-fluid
+          .span9
+            %strong== ▲ #{last_message.sended_at.to_s(:jp)}
     %div.message{:class => "#{cycle 'even', 'odd'}"}
       .row-fluid
-        .span2= message.username
-        .span6= message.content
-        .span1= message.sended_at.to_s(:simple)
+        .span2
+          %p= message.username
+        .span6
+          %p= message.content
+        .span1
+          %p= message.sended_at.to_s(:simple)
+    - last_message = message
 
 = paginate @messages

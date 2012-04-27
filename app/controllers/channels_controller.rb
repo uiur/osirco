@@ -17,8 +17,15 @@ class ChannelsController < ApplicationController
     @channels = Channel.all
 
     search = params[:search]
-    from = params[:from].blank? ? 20.years.ago : Time.zone.parse(params[:from])
-    @messages = @channel.messages.where{ ((content.like "%#{search}%") | (username.like "%#{search}%")) & (sended_at >= from) }.page(params[:page])
+    @messages = @channel.messages.where{ ((content.like "%#{search}%") | (username.like "%#{search}%")) }
+
+    if params[:date]
+      last = Time.zone.parse(params[:date]).end_of_day
+      @messages = @messages.where{ sended_at <= last  }
+      @date = last
+    end
+
+    @messages = @messages.page(params[:page])
 
     respond_to do |format|
       format.html # show.html.erb
