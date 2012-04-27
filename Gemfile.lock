@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/indirect/haml-rails.git
+  revision: fba4a145a152d7e34a4af50ed0eb8662a30f1735
+  specs:
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.1)
+      railties (~> 3.0)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 79dc10c396723b7a6e5824119d50fe912b58d152
   specs:
@@ -64,11 +74,6 @@ GEM
     faker (0.3.1)
     ffi (1.0.11)
     haml (3.1.4)
-    haml-rails (0.3.4)
-      actionpack (~> 3.0)
-      activesupport (~> 3.0)
-      haml (~> 3.0)
-      railties (~> 3.0)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.3)
@@ -77,6 +82,10 @@ GEM
       thor (~> 0.14)
     json (1.6.6)
     json_pure (1.6.1)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     less (2.2.1)
       commonjs (~> 0.2.6)
     less-rails (2.2.2)
@@ -174,8 +183,9 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   fabrication
   faker
-  haml-rails
+  haml-rails!
   jquery-rails
+  kaminari
   rails (= 3.2.3)
   rspec-rails
   sass-rails (~> 3.2.3)

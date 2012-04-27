@@ -7,9 +7,12 @@
 = form_tag @channel, :method => :get do
   = text_field_tag :search, params[:search], :placeholder => 'Search', :class => 'search-query'
   = submit_tag 'Search', :class => 'btn'
-%table.table.table-striped.table-condensed
+#messages
   - @messages.each do |message|
-    %tr
-      %td= message.username
-      %td= message.content
-      %td= message.sended_at.to_s(:simple)
+    %div.message{:class => "#{cycle 'even', 'odd'}"}
+      .row-fluid
+        .span2= message.username
+        .span6= message.content
+        .span1= message.sended_at.to_s(:simple)
+
+= paginate @messages
