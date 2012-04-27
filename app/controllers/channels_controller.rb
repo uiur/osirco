@@ -14,6 +14,7 @@ class ChannelsController < ApplicationController
   # GET /channels/1.json
   def show
     @channel = Channel.find(params[:id])
+    @messages = @channel.messages
 
     respond_to do |format|
       format.html # show.html.erb

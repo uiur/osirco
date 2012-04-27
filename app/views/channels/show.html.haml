@@ -1,0 +1,8 @@
+%h1= @channel.name
+%hr
+%table
+  - @messages.each do |message|
+    %tr
+      %td= message.username
+      %td= message.content
+      %td= message.sended_at

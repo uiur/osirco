@@ -1,0 +1,9 @@
+%table
+  %tr
+    %th Name
+    %th Host
+  - @channels.each do |channel|
+    %tr
+      %td= link_to channel.name, channel
+      %td= channel.host
+
