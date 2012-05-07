@@ -117,6 +117,8 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
+    rails_autolink (1.0.4)
+      rails (>= 3.1.0)
     railties (3.2.3)
       actionpack (= 3.2.3)
       activesupport (= 3.2.3)
@@ -187,6 +189,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   rails (= 3.2.3)
+  rails_autolink
   rspec-rails
   sass-rails (~> 3.2.3)
   spork
