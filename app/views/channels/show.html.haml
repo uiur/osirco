@@ -26,7 +26,7 @@
         .span2
           %p= message.username
         .span6{:class => "#{'notice_message' if message.notice}"}
-          %p= auto_link message.content, :html => { :target => '_blank' }
+          %p= auto_link_and_expand message.content
         .span1
           %p= message.sended_at.to_s(:simple)
     - last_message = message
