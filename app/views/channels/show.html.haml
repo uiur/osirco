@@ -17,13 +17,13 @@
   - last_message = @messages.first
   - @messages.each do |message|
     - if last_message.sended_at.beginning_of_day > message.sended_at
-      .message
+      .message.date_message
         .row-fluid
           .span9
             %strong== ▲ #{last_message.sended_at.to_s(:jp)}
-    %div.message{:class => "#{cycle 'even', 'odd'}"}
+    %div.message.user_message{:class => "#{cycle 'even', 'odd'}"}
       .row-fluid
-        .span2
+        .span2.username
           %p= message.username
         .span6{:class => "#{'notice_message' if message.notice}"}
           %p= auto_link_and_expand message.content
