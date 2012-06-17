@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617062852) do
+ActiveRecord::Schema.define(:version => 20120617064032) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20120617062852) do
     t.text     "content"
     t.datetime "sended_at"
     t.integer  "channel_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "notice",     :default => false
   end
 
   add_index "messages", ["channel_id"], :name => "index_messages_on_channel_id"
