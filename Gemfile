@@ -13,6 +13,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 
 gem 'kaminari'
 gem 'rails_autolink'
+gem 'friendly_id'
 
 # Gems used only for assets and not required
 # in production environments by default.

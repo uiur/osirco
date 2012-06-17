@@ -1,5 +1,7 @@
 class Channel < ActiveRecord::Base
-  attr_accessible :host, :name
+  attr_accessible :name
   has_many :messages
-  validates :host, :presence => true
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

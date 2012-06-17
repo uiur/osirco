@@ -2,10 +2,8 @@
   %thead
     %tr
       %th Name
-      %th Host
   %tbody
     - @channels.each do |channel|
       %tr
         %td= link_to channel.name, channel
-        %td= channel.host
 
